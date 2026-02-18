@@ -1,0 +1,199 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+    --color-bg: 255 255 255;
+    --color-surface: 255 255 255;
+    --color-hover: 241 245 249;
+
+    --color-text: 30 41 59;
+    --color-text-muted: 100 116 139;
+
+    --color-border: 226 232 240;
+}
+
+.dark {
+    --color-bg: 15 23 42;
+    --color-surface: 30 41 59;
+    --color-hover: 51 65 85;
+
+    --color-text: 226 232 240;
+    --color-text-muted: 148 163 184;
+
+    --color-border: 30 41 59;
+}
+
+@layer utilities {
+    .bg-base {
+        background-color: rgb(var(--color-bg));
+    }
+
+    .bg-surface {
+        background-color: rgb(var(--color-surface));
+    }
+
+    .bg-hover {
+        background-color: rgb(var(--color-hover));
+    }
+
+    .text-base {
+        color: rgb(var(--color-text));
+    }
+
+    .text-muted {
+        color: rgb(var(--color-text-muted));
+    }
+
+    .border-base {
+        border-color: rgb(var(--color-border));
+    }
+
+
+
+    /* =========================
+   TEXT SYSTEM
+    ========================= */
+
+    .text-heading {
+        @apply font-semibold;
+        color: rgb(var(--color-text));
+    }
+
+    .text-title {
+        @apply text-xl font-semibold;
+        color: rgb(var(--color-text));
+    }
+
+    .text-subtitle {
+        @apply text-sm;
+        color: rgb(var(--color-text-muted));
+    }
+
+    .text-muted {
+        color: rgb(var(--color-text-muted));
+    }
+
+    .text-soft {
+        color: rgb(var(--color-text-soft));
+    }
+
+    .text-success {
+        color: rgb(var(--color-success));
+    }
+
+    .text-danger {
+        color: rgb(var(--color-danger));
+    }
+
+    .text-warning {
+        color: rgb(var(--color-warning));
+    }
+
+    .label {
+        @apply text-sm font-medium;
+        color: rgb(var(--color-text));
+    }
+
+    /* ---------- CARD ---------- */
+    .card {
+        @apply rounded-xl border shadow-md transition;
+        background-color: rgb(var(--color-surface));
+        border-color: rgb(var(--color-border));
+    }
+
+    .card:hover {
+        @apply shadow-lg;
+    }
+
+    .card-header {
+        @apply px-6 py-4 border-b font-semibold;
+        border-color: rgb(var(--color-border));
+    }
+
+    .card-body {
+        @apply p-6;
+    }
+
+    /* ---------- BUTTON ---------- */
+    .btn {
+        @apply px-4 py-2 rounded-lg text-sm font-medium transition;
+        background-color: rgb(var(--color-bg));
+        border-color: rgb(var(--color-border));
+        color: rgb(var(--color-text));
+    }
+
+    .btn-primary {
+        background-color: rgb(var(--color-primary));
+        color: white;
+    }
+
+    .btn-primary:hover {
+        @apply opacity-90;
+    }
+
+    .btn-outline {
+        @apply border bg-transparent;
+        border-color: rgb(var(--color-border));
+        color: rgb(var(--color-text));
+    }
+
+    .btn-outline:hover {
+        background-color: rgb(var(--color-hover));
+    }
+
+    /* ---------- INPUT ---------- */
+    .input {
+        @apply w-full px-3 py-2 rounded-lg border outline-none transition;
+        background-color: rgb(var(--color-bg));
+        border-color: rgb(var(--color-border));
+        color: rgb(var(--color-text));
+    }
+
+    .input:focus {
+        border-color: rgb(var(--color-primary));
+        box-shadow: 0 0 0 2px rgb(var(--color-primary) / 0.2);
+    }
+
+    /* ---------- TABLE ---------- */
+    .table {
+        @apply w-full text-sm border-collapse;
+    }
+
+    .table th {
+        @apply text-left px-4 py-3 border-b;
+        border-color: rgb(var(--color-border));
+        color: rgb(var(--color-text-muted));
+    }
+
+    .table td {
+        @apply px-4 py-3 border-b;
+        border-color: rgb(var(--color-border));
+    }
+
+    .table tbody tr:hover {
+        background-color: rgb(var(--color-hover));
+    }
+
+    /* ---------- MODAL ---------- */
+    .modal-overlay {
+        @apply fixed inset-0 flex items-center justify-center;
+        background-color: rgb(0 0 0 / 0.5);
+    }
+
+    .modal {
+        @apply rounded-xl shadow-xl w-full max-w-lg border;
+        background-color: rgb(var(--color-surface));
+        border-color: rgb(var(--color-border));
+    }
+
+    .modal-header {
+        @apply px-6 py-4 border-b font-semibold;
+        border-color: rgb(var(--color-border));
+    }
+
+    .modal-body {
+        @apply p-6;
+    }
+
+}
